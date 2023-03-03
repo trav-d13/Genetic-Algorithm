@@ -14,7 +14,7 @@ class Individual:
 
         ## Individual chromosome
         self.genome = self.generate_genome()
-        self.fitness = calculate_fitness(self.genome)
+        self.fitness, self.weight = calculate_fitness(self.genome)
 
     def generate_genome(self):
         rand_number = random.getrandbits(self.knapsack_length)
@@ -26,3 +26,4 @@ class Individual:
 
     def access_fitness(self):
         return self.fitness
+

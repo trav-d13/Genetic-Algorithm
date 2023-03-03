@@ -1,6 +1,6 @@
 ## Knapsack key values
 weight_penalty = - 20
-invalid_gene_penalty = - 2
+invalid_gene_penalty = - 5
 gene_length = 3
 weight_threshold = 15
 
