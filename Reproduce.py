@@ -1,5 +1,6 @@
 import random
 from Individual import Individual
+from Population import remove_parents
 
 ## Reproduction parameters
 reproduce_prob = 0.7
@@ -16,7 +17,13 @@ def reproduce(breeding_pool):
 def select_parents(breeding_pool):
     parent_1_index = random.randint(0, len(breeding_pool) - 1)  # Randomly select parent 1 index
     parent_2_index = random.randint(0, len(breeding_pool) - 1)  # Randomly select parent 2 index
-    return breeding_pool[parent_1_index], breeding_pool[parent_2_index]
+
+    parent_1 = breeding_pool[parent_1_index]  # Identify parent 1
+    parent_2 = breeding_pool[parent_2_index]  # Identify parent 2
+
+    remove_parents(parent_1, parent_2)
+
+    return parent_1, parent_2
 
 
 
