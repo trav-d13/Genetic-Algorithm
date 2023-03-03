@@ -1,14 +1,28 @@
 import random
+from KnapsackFitness import calculate_fitness
 
-## Knapsack ##
-knapsack_length = 15
 
-## Travelling Salesman ##
-cities = 5
-gene_length = 5
-salesman_length = cities * gene_length
+class Individual:
+    def __init__(self):
+        ## Knapsack ##
+        self.knapsack_length = 15
 
-def generate_individual():
-    rand_number = random.getrandbits(knapsack_length)
-    genome_str = format(rand_number, '0b')
-    return genome_str
+        ## Travelling Salesman ##
+        self.cities = 5
+        self.gene_length = 5
+        self.salesman_length = self.cities * self.gene_length
+
+        ## Individual chromosome
+        self.genome = self.generate_genome()
+        self.fitness = calculate_fitness(self.genome)
+
+    def generate_genome(self):
+        rand_number = random.getrandbits(self.knapsack_length)
+        genome_str = format(rand_number, '0b')
+        return genome_str
+
+    def access_genome(self):
+        return self.genome
+
+    def access_fitness(self):
+        return self.fitness

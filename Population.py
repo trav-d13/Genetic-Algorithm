@@ -1,7 +1,8 @@
-from Individual import generate_individual
-population_size = 1000
-def generate_population():
+from Individual import Individual
+
+
+def generate_population(size=1000):
     population = []
-    for i in range(population_size):
-        population.append(generate_individual())
+    for i in range(size):
+        population.append(Individual())
     return population
