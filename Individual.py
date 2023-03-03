@@ -3,7 +3,7 @@ from KnapsackFitness import calculate_fitness
 
 
 class Individual:
-    def __init__(self):
+    def __init__(self, genome=None):
         ## Knapsack ##
         self.knapsack_length = 15
 
@@ -12,13 +12,16 @@ class Individual:
         self.gene_length = 5
         self.salesman_length = self.cities * self.gene_length
 
-        ## Individual chromosome
-        self.genome = self.generate_genome()
-        self.fitness, self.weight = calculate_fitness(self.genome)
+        if genome is None:  # Genome creation
+            self.genome = self.generate_genome()  # Randomly generate
+        else:
+            self.genome = genome  # Utilize genome param
+
+        self.fitness, self.weight = calculate_fitness(self.genome)  # Fitness
 
     def generate_genome(self):
-        rand_number = random.getrandbits(self.knapsack_length)
-        genome_str = format(rand_number, '0b')
+        genome_str = ''.join(random.choices(['0', '1'], k=self.knapsack_length))  # Generate random binary genome
+        assert len(genome_str) == self.knapsack_length
         return genome_str
 
     def access_genome(self):
@@ -26,4 +29,3 @@ class Individual:
 
     def access_fitness(self):
         return self.fitness
-
