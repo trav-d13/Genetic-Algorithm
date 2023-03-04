@@ -34,16 +34,17 @@ def find_fittest_individual_bounded() -> Individual:
     fittest_individual = population[0]  # Ensure an individual is always returned
     for individual in population:
         fitness = individual.access_fitness()
-        if fitness > max_fitness and fitness >= 0:
+        if fitness > max_fitness:
             fittest_individual = individual
     return fittest_individual
 
 
 def avg_population_fitness_bounded():
+    global size
+    size = len(population)
     fitness_total = 0
     for individual in population:
         fitness = individual.access_fitness()
-        if fitness > 0:
-            fitness_total = fitness_total + fitness
+        fitness_total = fitness_total + fitness
     return fitness_total / size
 

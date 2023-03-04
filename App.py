@@ -3,12 +3,10 @@ from Selection import select_breeding_pool
 from Reproduce import reproduce
 from Mutate import mutate
 
-# Knapsack Problem = 0
-# Travelling Salesman problem = 1
 
 ## Genetic Algorithm Parameters ##
-generations = 200
-population = 100
+generations = 1000
+population = 500
 breeding_pool_size = 30
 
 if __name__ == "__main__":

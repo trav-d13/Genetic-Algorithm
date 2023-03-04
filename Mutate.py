@@ -3,8 +3,8 @@ import random
 
 ## Mutation Param
 mutation_prob = 0.1  # Low mutation probability
-bit_flip_mutation_prob = 0.8
-genome_flip_mutation_prob = 0.2
+bit_flip_mutation_prob = 0.7
+genome_flip_mutation_prob = 0.3
 
 
 def mutate(individual_1, individual_2):

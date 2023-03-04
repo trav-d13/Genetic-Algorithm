@@ -3,7 +3,7 @@ from Individual import Individual
 from Population import remove_parents
 
 ## Reproduction parameters
-reproduce_prob = 0.7
+reproduce_prob = 0.9
 
 
 def reproduce(breeding_pool: list):
@@ -11,6 +11,7 @@ def reproduce(breeding_pool: list):
     parent_1, parent_2 = select_parents(breeding_pool)  # Select parents from breeding pool
     if determiner < reproduce_prob:
         return crossover_gene(parent_1, parent_2)  # Perform crossover reproduction
+    remove_parents(parent_1, parent_2)  # Remove parents from the population
     return parent_1, parent_2
 
 
@@ -21,7 +22,6 @@ def select_parents(breeding_pool: list):
     parent_1 = breeding_pool[parent_1_index]  # Identify parent 1
     parent_2 = breeding_pool[parent_2_index]  # Identify parent 2
 
-    remove_parents(parent_1, parent_2)  # Remove parents from the population
     breeding_pool[:] = list(set(breeding_pool) - set([parent_1, parent_2]))  # Remove parents from the breeding pool
 
     return parent_1, parent_2

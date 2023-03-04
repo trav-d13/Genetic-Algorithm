@@ -9,7 +9,7 @@ runner_up_prob = winner_selection_prob + 0.25
 def select_breeding_pool(population, breeding_pool_size, tournament_size=5):
     breeding_pool = []
     for i in range(breeding_pool_size):
-        selected_individual = roulette_selection(population)
+        selected_individual = tournament(population, tournament_size)
         breeding_pool.append(selected_individual)
     return breeding_pool
 

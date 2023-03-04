@@ -1,5 +1,5 @@
 ## Knapsack key values
-weight_penalty = - 5
+weight_penalty = - 10
 invalid_gene_penalty = - 2
 gene_length = 3
 weight_threshold = 15
@@ -48,7 +48,3 @@ def genome_to_genes(genome):
         end_index = end_index + gene_length
     return genes
 
-
-if __name__ == "__main__":
-    fitness = calculate_fitness('101001011101000')
-    print(fitness)
