@@ -3,7 +3,7 @@ Genetic Algorithm to solve the Knapsack and Travelling Salesman problems.
 In the `App.py` file please specify Knapsack problem or Travelling Salesman problem in the population creation [line 19].
 
 **Knapsack Problem:**  \
-_Given a set of items, each with a weight and a value, determine which items to include in the collection so that the total weight is less than or equal to a given limit and the total value is as large as possible._ ([Wikipedia](https://en.wikipedia.org/wiki/Knapsack_problem)) \
+_Given a set of items, each with a weight and a value, determine which items to include in the collection so that the total weight is less than or equal to a given limit and the total value is as large as possible._ ([Source: Wikipedia](https://en.wikipedia.org/wiki/Knapsack_problem)) \
 Specifically, each item can be selected multiple times to be put in the Knapsack. 
 The problem weights and values are given as follows: 
 
@@ -14,6 +14,12 @@ The problem weights and values are given as follows:
 | 2           | 2         |
 | 1           | 1         |
 | 4           | 10        |
+
+**Travelling Salesman Problem:** \
+Given a list of cities and the distances between each pair of cities, what is the shortest possible route that visits 
+each city exactly once and returns to the origin city? [Source: Wikipedia](https://en.wikipedia.org/wiki/Travelling_salesman_problem) 
+
+
 
 ## Requirements:
 - Python=3.10
