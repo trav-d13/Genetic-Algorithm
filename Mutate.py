@@ -20,6 +20,7 @@ def mutate_individual(individual: Individual):
         if mutation_type_decider < bit_flip_mutation_prob:
             return bit_flip_mutation(genome)
         return genome_flip_mutation(genome)
+    return individual
 
 
 def bit_flip_mutation(genome: str):
@@ -27,10 +28,12 @@ def bit_flip_mutation(genome: str):
     bit = int(genome[bit_index])
     flipped_bit = bit ^ 1
 
-    return genome[0: bit_index] + str(flipped_bit) + genome[bit_index + 1:]
+    mutated_genome = genome[0: bit_index] + str(flipped_bit) + genome[bit_index + 1:]
+    return Individual(genome=mutated_genome)
 
 
 def genome_flip_mutation(genome: str):
     encoded_genome = genome.replace('1', '5')  # Alter values of 1's to 5's
     temp_genome = encoded_genome.replace('0', '1')  # Invert 0's to 1's
-    return temp_genome.replace('5', '0')  # Replace 5's to o's (1's to 0's inversion)
+    mutated_genome = temp_genome.replace('5', '0')  # Replace 5's to o's (1's to 0's inversion)
+    return Individual(genome=mutated_genome)

@@ -1,6 +1,6 @@
 ## Knapsack key values
-weight_penalty = - 20
-invalid_gene_penalty = - 5
+weight_penalty = - 5
+invalid_gene_penalty = - 2
 gene_length = 3
 weight_threshold = 15
 
@@ -26,7 +26,6 @@ def calculate_fitness(genome):
     return fitness, weight
 
 
-
 def retrieve_encoding_value(gene):
     gene_value = 0
     gene_weight = 0
@@ -36,7 +35,6 @@ def retrieve_encoding_value(gene):
     except KeyError:
         gene_value = invalid_gene_penalty
     return gene_value, gene_weight
-
 
 
 def genome_to_genes(genome):

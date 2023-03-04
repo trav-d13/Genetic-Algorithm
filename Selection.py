@@ -4,11 +4,12 @@ import random
 winner_selection_prob = 0.6
 runner_up_prob = winner_selection_prob + 0.25
 
+
 # Adapt method selection method to utilize roulette or tournament
 def select_breeding_pool(population, breeding_pool_size, tournament_size=5):
     breeding_pool = []
     for i in range(breeding_pool_size):
-        selected_individual = tournament(population, tournament_size)
+        selected_individual = roulette_selection(population)
         breeding_pool.append(selected_individual)
     return breeding_pool
 
@@ -17,6 +18,7 @@ def select_breeding_pool(population, breeding_pool_size, tournament_size=5):
 def roulette_selection(population):
     wheel = roulette_wheel(population)  # Create roulette wheel
     selector = random.uniform(0, 1)  # Generate a selector for the wheel
+    individual = population[0]
     for wheel_value in wheel:  # Determine selected Individual
         if wheel_value < selector:
             individual = wheel[wheel_value]
