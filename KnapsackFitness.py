@@ -13,7 +13,7 @@ encodings = {
 }
 
 
-def calculate_fitness(genome):
+def calculate_knapsack_fitness(genome):
     fitness = 0
     weight = 0
     genes = genome_to_genes(genome)

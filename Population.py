@@ -4,12 +4,12 @@ population = []
 size = 0
 
 
-def generate_population(pop_size=1000):
+def generate_population(pop_size=1000, problem: int=0):
     global size
     size = pop_size
 
     for i in range(size):
-        population.append(Individual())
+        population.append(Individual(problem=problem))
     return population
 
 

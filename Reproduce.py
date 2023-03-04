@@ -38,13 +38,13 @@ def crossover(individual_1: Individual, individual_2: Individual):
     assert len(child_1_genome) == len(genome_1)
     assert len(child_2_genome) == len(genome_2)
 
-    child_1 = Individual(genome=child_1_genome)
-    child_2 = Individual(genome=child_2_genome)
+    child_1 = Individual(genome=child_1_genome, problem=individual_1.access_problem())
+    child_2 = Individual(genome=child_2_genome, problem=individual_2.access_problem())
 
     return child_1, child_2
 
 
-def crossover_gene(individual_1: Individual, individual_2: Individual):
+def crossover_gene(individual_1: Individual, individual_2: Individual):  # Crossover explicitly at gene start/ end locations
     genome_1 = individual_1.access_genome()
     genome_2 = individual_2.access_genome()
 
@@ -55,7 +55,7 @@ def crossover_gene(individual_1: Individual, individual_2: Individual):
     assert len(child_1_genome) == len(genome_1)
     assert len(child_2_genome) == len(genome_2)
 
-    child_1 = Individual(genome=child_1_genome)
-    child_2 = Individual(genome=child_2_genome)
+    child_1 = Individual(genome=child_1_genome, problem=individual_1.access_problem())
+    child_2 = Individual(genome=child_2_genome, problem=individual_2.access_problem())
 
     return child_1, child_2

@@ -6,11 +6,17 @@ from Mutate import mutate
 
 ## Genetic Algorithm Parameters ##
 generations = 1000
-population = 500
+population = 1000
 breeding_pool_size = 30
 
+## Problem Selection ##
+# 0 - Knapsack Problem
+# 1 - Travelling Salesman
+knapsack = 0
+travelling_salesman = 1
+
 if __name__ == "__main__":
-    population = generate_population()
+    population = generate_population(pop_size=5, problem=travelling_salesman)
 
     generation = 0
     while generation < generations:
