@@ -5,9 +5,10 @@ from Mutate import mutate
 
 
 ## Genetic Algorithm Parameters ##
+# Utilize README to determine problem specific parameters
 generations = 1000
-population = 1000
-breeding_pool_size = 30
+population = 20
+breeding_pool_size = 10
 
 ## Problem Selection ##
 # 0 - Knapsack Problem
@@ -16,7 +17,7 @@ knapsack = 0
 travelling_salesman = 1
 
 if __name__ == "__main__":
-    population = generate_population(pop_size=5, problem=travelling_salesman)
+    population = generate_population(pop_size=population, problem=travelling_salesman)
 
     generation = 0
     while generation < generations:
@@ -30,7 +31,7 @@ if __name__ == "__main__":
         fittest_individual = find_fittest_individual_bounded()  # Identify the population's fittest individual
         avg_fitness = avg_population_fitness_bounded()  # Calculate the avg population fitness
 
-        print('#############################################################')
+        print('#############################################################')  # Use README to decode results
         print("Generation: ", generation, ' | Generation avg fitness: ', avg_fitness, " | Max fitness: ",
-              fittest_individual.access_fitness(), " | Genome: ", fittest_individual.access_genome())
+              fittest_individual.access_fitness(), " | Genome: ", fittest_individual.display_genome())
         generation += 1  # Increment generation

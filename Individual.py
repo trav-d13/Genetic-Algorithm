@@ -1,6 +1,8 @@
 import random
 from KnapsackFitness import calculate_knapsack_fitness
+from KnapsackFitness import genome_to_genes_knapsack
 from SalesmanFitness import calculate_salesman_fitness
+from SalesmanFitness import genome_to_genes_salesman
 
 
 class Individual:
@@ -9,7 +11,7 @@ class Individual:
         self.knapsack_length = 15
 
         ## Travelling Salesman ##
-        self.cities = 7
+        self.cities = 8
         self.gene_length = 3
         self.salesman_length = self.cities * self.gene_length
 
@@ -19,8 +21,7 @@ class Individual:
             self.genome = genome  # Utilize genome param
 
         self.problem = problem  # Individual created to solve what problem
-        self.fitness, self.weight = self.calculate_fitness(self.genome, self.problem)  # Fitness
-
+        self.fitness = self.calculate_fitness(self.genome, self.problem)  # Fitness
 
     def generate_genome(self, problem):
         genome_length = self.knapsack_length
@@ -34,9 +35,7 @@ class Individual:
         if problem == 0:
             return calculate_knapsack_fitness(genome)
         else:
-            return
-
-
+            return calculate_salesman_fitness(genome)
 
     def access_genome(self):
         return self.genome
@@ -47,3 +46,8 @@ class Individual:
     def access_problem(self):
         return self.problem
 
+    def display_genome(self):
+        if self.problem == 0:
+            return genome_to_genes_knapsack(self.genome)
+        else:
+            return genome_to_genes_salesman(self.genome)
