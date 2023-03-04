@@ -15,6 +15,9 @@ The problem weights and values are given as follows:
 | 1           | 1         |
 | 4           | 10        |
 
+## Requirements:
+- Python=3.10
+- Numpy
 
 ## Implementation
 The Genetic Algorithm Implementation makes use of a binary encoding of the genotypes for both the 
